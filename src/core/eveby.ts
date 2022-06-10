@@ -20,11 +20,6 @@ declare type Resource = {
 };
 declare type ResourceMap = Resource[];
 
-export declare type LoadMap = {
-  status: boolean;
-  data: string[];
-}[];
-
 /**
  * Discord API
  */
@@ -102,7 +97,7 @@ export const EvebyBot = (options?: EvebyBotOptions<any>) => {
     /**
      * Responsável por executar as funcionalidades.
      */
-    run: async (resources: LoadMap) => {
+    run: async (resources: ResourceMap) => {
       if (options?.mode === 'dev' && options.debug) {
         for (const [key, val] of Object.entries(resources)) {
           console.log(Logger(key, val.data.length));
