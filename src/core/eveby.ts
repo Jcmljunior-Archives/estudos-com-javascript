@@ -2,6 +2,7 @@ import { Client, Collection, Intents } from 'discord.js';
 import { EventManager } from './event-manager';
 import { ModeManager } from './mode-manager';
 import { Logger } from './logger';
+import { getToken } from './authenticator-manager';
 
 /**
  * Mapeamento de opções.
@@ -37,7 +38,7 @@ const cache: Collection<string, any> = new Collection();
  * Responsável por gerenciar as funcionalidades do Bot.
  * @param options Configurações iniciais.
  */
-export const EvebyBot = (options?: EvebyBotOptions<any>) => {
+export const EvebyBot = (options: EvebyBotOptions<any>) => {
   return {
     /**
      * Responsável por carregar as funcionalidades.
@@ -156,6 +157,11 @@ export const EvebyBot = (options?: EvebyBotOptions<any>) => {
 
       if (ModeManager()(options) && !events().status)
         console.log('Oppsss, ocorreu um erro durante o processo.');
+
+      /**
+       * Autenticação
+       */
+      client.login(getToken(options));
     },
   };
 };

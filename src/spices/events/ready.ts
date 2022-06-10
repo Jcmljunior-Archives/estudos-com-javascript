@@ -2,14 +2,16 @@ import { Event, EventOptions } from '../../core/event';
 
 const options: EventOptions = {
   options: {
-    name: 'messageCreate',
+    name: 'ready',
   },
 };
 
-export const MessageCreate = ((Event) => {
+export const Ready = ((Event) => {
   return {
     ...options,
     ...Event,
-    run: () => {},
+    run: () => {
+      console.log('Running...');
+    },
   };
 })(Event);
