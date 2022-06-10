@@ -1,5 +1,6 @@
 import { Client, Collection, Intents } from 'discord.js';
 import { EventManager } from './event-manager';
+import { ModeManager } from './mode-manager';
 import { Logger } from './logger';
 
 /**
@@ -98,7 +99,7 @@ export const EvebyBot = (options?: EvebyBotOptions<any>) => {
      * Responsável por executar as funcionalidades.
      */
     run: async (resources: ResourceMap) => {
-      if (options?.mode === 'dev' && options.debug) {
+      if (ModeManager()(options)) {
         for (const [key, val] of Object.entries(resources)) {
           console.log(Logger(key, val.data.length));
         }
@@ -153,7 +154,7 @@ export const EvebyBot = (options?: EvebyBotOptions<any>) => {
         };
       };
 
-      if (options?.mode === 'dev' && options.debug && !events().status)
+      if (ModeManager()(options) && !events().status)
         console.log('Oppsss, ocorreu um erro durante o processo.');
     },
   };
