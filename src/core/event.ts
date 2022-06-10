@@ -1,0 +1,81 @@
+declare type DiscordEventString =
+  | 'applicationCommandCreate'
+  | 'applicationCommandDelete'
+  | 'applicationCommandUpdate'
+  | 'channelCreate'
+  | 'channelDelete'
+  | 'channelPinsUpdate'
+  | 'channelUpdate'
+  | 'debug'
+  | 'warn'
+  | 'error'
+  | 'emojiCreate'
+  | 'emojiDelete'
+  | 'emojiUpdate'
+  | 'guildBanAdd'
+  | 'guildBanRemove'
+  | 'guildCreate'
+  | 'guildDelete'
+  | 'guildUnavailable'
+  | 'guildIntegrationsUpdate'
+  | 'guildMemberAdd'
+  | 'guildMemberAvailable'
+  | 'guildMemberRemove'
+  | 'guildMembersChunk'
+  | 'guildMemberUpdate'
+  | 'guildUpdate'
+  | 'inviteCreate'
+  | 'inviteDelete'
+  | 'message'
+  | 'messageCreate'
+  | 'messageDelete'
+  | 'messageReactionRemoveAll'
+  | 'messageReactionRemoveEmoji'
+  | 'messageDeleteBulk'
+  | 'messageReactionAdd'
+  | 'messageReactionRemove'
+  | 'messageUpdate'
+  | 'presenceUpdate'
+  | 'rateLimit'
+  | 'invalidRequestWarning'
+  | 'ready'
+  | 'invalidated'
+  | 'roleCreate'
+  | 'roleDelete'
+  | 'roleUpdate'
+  | 'threadCreate'
+  | 'threadDelete'
+  | 'threadListSync'
+  | 'threadMemberUpdate'
+  | 'threadMembersUpdate'
+  | 'threadUpdate'
+  | 'typingStart'
+  | 'userUpdate'
+  | 'voiceStateUpdate'
+  | 'webhookUpdate'
+  | 'interaction'
+  | 'interactionCreate'
+  | 'shardDisconnect'
+  | 'shardError'
+  | 'shardReady'
+  | 'shardReconnecting'
+  | 'shardResume'
+  | 'stageInstanceCreate'
+  | 'stageInstanceUpdate'
+  | 'stageInstanceDelete'
+  | 'stickerCreate'
+  | 'stickerDelete'
+  | 'stickerUpdate';
+
+export declare type EventOptions = {
+  options: {
+    name?: DiscordEventString;
+  };
+};
+
+/**
+ * Gerenciador de Eventos.
+ */
+export const Event = () => {
+  return {};
+};
